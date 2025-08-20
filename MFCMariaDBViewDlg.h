@@ -37,7 +37,7 @@ public:
 	void InitCtrl();
 	std::vector<std::vector<CString>> tbl_setmodel;
 	std::vector<std::vector<CString>> tbl_setparams;
-		
+	void GetEditCtrl();	
 	CListCtrl m_ModelList;
 	CListCtrl m_ParamsList;
 	afx_msg void ModelClick(NMHDR* pNMHDR, LRESULT* pResult);
@@ -48,3 +48,4 @@ public:
 	CEdit m_DBPW;
 	CEdit m_DBUSER;
 };
+
