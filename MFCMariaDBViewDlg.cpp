@@ -188,11 +188,19 @@ void CMFCMariaDBViewDlg::InitCtrl()
 	m_DBPW.SetWindowText(MariaDB.DB_Setting.DB_PASS);
 	m_DBUSER.SetWindowText(MariaDB.DB_Setting.DB_USER);
 }
-
+void CMFCMariaDBViewDlg::GetEditCtrl()
+{
+	m_DBHOST.GetWindowText(MariaDB.DB_Setting.DB_HOST);
+	m_DBNAME.GetWindowText(MariaDB.DB_Setting.DB_NAME);
+	m_DBPORT.GetWindowText(MariaDB.DB_Setting.DB_PORT);
+	m_DBUSER.GetWindowText(MariaDB.DB_Setting.DB_USER);
+	m_DBPW.GetWindowText(MariaDB.DB_Setting.DB_PASS);
+}
 void CMFCMariaDBViewDlg::OnBnClickedDb()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	m_ModelList.DeleteAllItems();
+	GetEditCtrl();
 	MariaDB.m_fnInitDB();
 	MariaDB.m_fnConnectDB();
 	CString SELECT_query;
@@ -217,4 +225,5 @@ void CMFCMariaDBViewDlg::ModelClick(NMHDR* pNMHDR, LRESULT* pResult)
 	}
 
 	*pResult = 0;
+
 }
